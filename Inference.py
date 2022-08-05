@@ -6,7 +6,8 @@ import tensorflow as tf
 
 model = tf.keras.models.load_model('mlm_280x280.h5')
 
-def predict(img,f_shape,y_block=2): #final_height will be f_shape*y_block
+def predict(img,f_shape,y_block=2): #output image height will be f_shape*y_block
+
   h,w = img.shape[:2]
   img = cv2.normalize(img,np.zeros((h,w)),0,255,cv2.NORM_MINMAX)
   nh = (f_shape*y_block)
